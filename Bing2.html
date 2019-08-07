@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>QuickStart</title>
+	<link rel="stylesheet" type="text/css" href="./resources/css/ext-all.css" />
+ 	<!-- LIBS -->
+ 	<script type="text/javascript" src="./js/ext-base.js"></script>
+ 	<!-- ENDLIBS -->
+    <script type="text/javascript" src="./js/ext-all.js"></script>
+	<script>
+        
+		Ext.onReady(function() {
+			var container = new Ext.Container({
+				renderTo: 'test',
+				layout: 'table',
+				style: 'position:absolute;',
+				pageX: 100,
+				pageY: 150,
+				layoutConfig: {
+					columns: 2
+				},
+				items: [{
+					
+					colspan: 1,
+					width: 200,
+					layout: 'hbox',
+					layoutConfig: {pack: 'center'},
+					xtype: 'container',
+					items: [{
+						xtype: 'box',
+						height: 50,
+						autoEl: {
+							tag: 'img',
+							src: 'bing.jpg'
+						}
+					}]
+				},{
+                    xtype: 'tabpanel',
+					colspan: 1,
+					width: 600,
+					height: 50,
+					activeTab: 0,
+					plain:true,
+				    items:[
+				        {
+				        	id:'ner',
+							width: 600,
+							layout: 'hbox',
+							layoutConfig: {pack: 'center'},
+							xtype: 'container',
+							title:'国内版',
+							items: [{
+								xtype:'trigger',
+								triggerClass:'x-form-search-trigger',
+								width:600,
+								height:25
+							}]
+						},
+				        {
+				        	id:'wai',
+				        	width: 600,
+							layout: 'hbox',
+							layoutConfig: {pack: 'center'},
+							xtype: 'container',
+							title:'国际版',
+							items: [{
+								xtype:'trigger', 
+								triggerClass:'x-form-search-trigger',
+								width:600,
+								height:25
+							}]
+				        },
+				    ]
+				}]
+		    });
+
+		    Ext.get('ext-comp-1004__ner').on('click', function() {
+				document.body.style.background = "url(background2.jpg)";
+			});
+			Ext.get('ext-comp-1004__wai').on('click', function() {
+				document.body.style.background = "url(background3.jpg)";
+			});
+		});
+	</script>
+	<style type="text/css">
+	   
+	   body{
+	   	  background-image:url(background2.jpg);
+	   }
+	</style>
+</head>
+<body>
+    <div id="test"></div>
+</body>
+</html>
